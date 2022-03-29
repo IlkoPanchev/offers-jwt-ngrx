@@ -1,0 +1,14 @@
+footer {
+  background-color: #324b4b;
+  color: aliceblue;
+  text-align: center;
+  padding: 16px;
+  // width: 100vw;
+}
+
+@media all and (max-width: 800px) {
+  footer {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

@@ -1,0 +1,68 @@
+<section class="login">
+  <div class="login-icon">
+    <i class="fas fa-user-check"></i>
+  </div>
+  <article class="login-form">
+    <form [formGroup]="form" (ngSubmit)="login()">
+
+      <label for="username" *ngIf="(!form.get('username')?.touched) ||
+       (form.get('username')?.touched
+        && !form.get('username')?.errors?.['required']
+        && !form.get('username')?.errors?.['minlength'])">Username</label>
+      <ng-container *ngIf="form.get('username')?.touched">
+        <p *ngIf="form.get('username')?.errors?.['required']" class="error">
+          Username is required !
+        </p>
+        <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">
+          Username should be at least 3 symbols long!
+        </p>
+      </ng-container>
+      <input
+      autocomplete="off"
+        [ngClass]="{'input-field-error': loginFailure || (form.get('username')?.touched 
+        && (form.get('username')?.errors?.['required'] 
+        || form.get('username')?.errors?.['minlength']))}"
+        (keyup)="onKey()" 
+        type="text" 
+        name="username" 
+        id="username" 
+        formControlName="username" />
+
+      <label for="password" *ngIf="(!form.get('password')?.touched) ||
+      (form.get('password')?.touched
+       && !form.get('password')?.errors?.['required']
+       && !form.get('password')?.errors?.['minlength'])">Password</label>
+      <ng-container *ngIf="form.get('password')?.touched">
+        <p *ngIf="form.get('password')?.errors?.['required']" class="error">
+          Passwod is required !
+        </p>
+        <p *ngIf="form.get('password')?.errors?.['minlength']" class="error">
+          Password should be at least 3 symbols long!
+        </p>
+      </ng-container>
+      <input
+      [ngClass]="{'input-field-error': loginFailure || (form.get('password')?.touched 
+      && (form.get('password')?.errors?.['required'] 
+      || form.get('password')?.errors?.['minlength']))}"
+        (keyup)="onKey()"
+         type="password"
+          name="password"
+           id="password"
+            formControlName="password" />
+      <ng-container>
+        <p *ngIf="loginFailure" class="error">
+          Incorrect username or password!
+        </p>
+      </ng-container>
+      
+      <input type="submit" class="login-form-loginbtn" value="Login" />
+    </form>
+  </article>
+  <div class="login-signup">
+    <p>
+      Dont have an account?
+      <a class="login-signup-link" routerLink="/user/register">Sign up</a>.
+    </p>
+  </div>
+</section>
+<ng-http-loader *ngIf="isLoading"></ng-http-loader>

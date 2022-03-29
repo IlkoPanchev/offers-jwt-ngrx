@@ -1,0 +1,33 @@
+.info-message {
+    background: #ddd;
+    padding: 1rem;
+    word-wrap: break-word;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .mat-dialog-actions{
+    justify-content: center;
+  }
+
+  .dialog-btn {
+    font-size: 20px;
+    background-color: #333;
+    color: white;
+    padding: 5px 30px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.dialog-btn:hover {
+  opacity: 1;
+}
+
+
+

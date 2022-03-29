@@ -1,0 +1,175 @@
+<section class="profile">
+  <div *ngIf="!isLoading">
+    <ng-container *ngIf="inUpdateMode">
+      <article class="profile-form">
+        <form [formGroup]="form" (ngSubmit)="updateProfile()">
+          <h2 class="profile-form-title">Edit profile</h2>
+          <label for="username">Username</label>
+          <ng-container *ngIf="form.get('username')?.touched">
+            <p *ngIf="form.get('username')?.errors?.['required']" class="error">
+              Username is required !
+            </p>
+            <p
+              *ngIf="form.get('username')?.errors?.['minlength']"
+              class="error"
+            >
+              Username should be at least 3 symbols long !
+            </p>
+          </ng-container>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            formControlName="username"
+            readonly
+          />
+         
+          <label for="email" [hidden]="profileFailureEmail" *ngIf="(!form.get('email')?.touched) ||
+          (form.get('email')?.touched
+           && !form.get('email')?.errors?.['required']
+           && !form.get('email')?.errors?.['email'])">Email</label>
+          <ng-container *ngIf="form.get('email')?.touched">
+            <p *ngIf="form.get('email')?.errors?.['required']" class="error">
+              Email is required !
+            </p>
+            <p *ngIf="form.get('email')?.errors?.['email']" class="error">
+              Email is not valid !
+            </p>
+            <p *ngIf="profileFailureEmail" class="error">
+              {{errorMessage}}
+            </p>
+          </ng-container>
+          <input
+         autocomplete="nope"
+          [ngClass]="{'input-field-error': profileFailureEmail || (form.get('email')?.errors?.['email'] || form.get('email')?.errors?.['required'])}"
+          (keyup)="onKey()" 
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+          />
+         
+          <label for="phone" *ngIf="(!form.get('phone')?.touched) ||
+          (form.get('phone')?.touched
+           && !form.get('phone')?.errors?.['required']
+           && !form.get('phone')?.errors?.['phone'])">Phone</label>
+          <ng-container *ngIf="form.get('phone')?.touched">
+            <p *ngIf="form.get('phone')?.errors?.['required']" class="error">
+              Phone is required !
+            </p>
+            <p *ngIf="form.get('phone')?.errors?.['phone']" class="error">
+              Phone is not valid !
+            </p>
+          </ng-container>
+          <input
+          [ngClass]="{'input-field-error': form.get('phone')?.errors?.['required'] || form.get('phone')?.errors?.['phone']}"
+            type="text"
+            name="phone"
+            id="phone"
+            formControlName="phone"
+          />
+         
+          <label for="address" *ngIf="(!form.get('address')?.touched) ||
+          (form.get('address')?.touched
+           && !form.get('address')?.errors?.['required']
+           && !form.get('address')?.errors?.['minlength'])">Address</label>
+          <ng-container *ngIf="form.get('address')?.touched">
+            <p *ngIf="form.get('address')?.errors?.['required']" class="error">
+              Address is required !
+            </p>
+            <p *ngIf="form.get('address')?.errors?.['minlength']" class="error">
+              Address is not valid !
+            </p>
+          </ng-container>
+          <input
+          [ngClass]="{'input-field-error': form.get('address')?.errors?.['required'] || form.get('address')?.errors?.['minlength']}"
+            type="text"
+            name="address"
+            id="address"
+            formControlName="address"
+          />
+         
+
+          <!-- <p>Password</p>
+          <input type="password" class="input-error" placeholder="Enter Password" name="password" formControlName="password">
+
+          <ng-container *ngIf="form.get('password')?.touched">
+              <p *ngIf="form.get('password')?.errors?.['required']" class="error">
+                  Password is required!
+              </p>
+              <p *ngIf="form.get('password')?.errors?.['minlength']" class="error">
+                  Password should be at least 3 symbols long!
+                </p>
+            </ng-container> -->
+          <!-- 
+          <p>Repeat Password</p>
+          <input type="password" class="input-error" placeholder="Repeat Password" name="rePassword" formControlName="rePassword" >
+
+          <ng-container *ngIf="form.get('rePassword')?.touched">
+              <p *ngIf="form.get('rePassword')?.errors?.['required']" class="error">
+                Repeat Password is required!
+              </p>
+              <p *ngIf="form.get('rePassword')?.errors?.['sameValue']" class="error">
+                Repeat Password does not match password!
+              </p>
+            </ng-container> -->
+          <!-- <hr /> -->
+          <input
+            type="submit"
+            [disabled]="!form.valid"
+            class="profile-form-btn save"
+            value="Save"
+          />
+          <input
+            type="submit"
+            class="profile-form-btn cancel"
+            (click)="inUpdateMode = false"
+            value="Cancel"
+          />
+        </form>
+      </article>
+    </ng-container>
+    <ng-container *ngIf="!inUpdateMode">
+      <article class="profile-form">
+        <form>
+          <h2 class="profile-form-title">My Profile</h2>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value="{{ user?.username }}"
+            readonly
+          />
+
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" value="{{ user?.email }}" readonly />
+
+          <label>Phone</label>
+          <input type="text" name="phone" id="phone" value="{{ user?.phone }}" readonly />
+
+          <label for="address">Address</label>
+          <input
+            type="email"
+            name="address"
+            id="address"
+            value="{{ user?.address }}"
+            readonly
+          />
+
+          <input
+            type="submit"
+            (click)="editProfile()"
+            class="profile-form-btn edit"
+            value="Edit"
+          />
+        </form>
+      </article>
+    </ng-container>
+  </div>
+  <div *ngIf="isLoading">
+    <h2 class="profile-form-title-loading">My Profile</h2>
+  </div>
+</section>
+<ng-http-loader *ngIf="isLoading"></ng-http-loader>
+

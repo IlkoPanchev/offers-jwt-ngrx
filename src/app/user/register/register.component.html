@@ -1,0 +1,151 @@
+<section class="register">
+  <div class="register-icon">
+    <i class="far fa-id-card"></i>
+  </div>
+  <article class="register-form">
+    <form [formGroup]="form" (ngSubmit)="register()">
+
+      <label for="username" [hidden]="registerFailureUsername" *ngIf="(!form.get('username')?.touched) ||
+      (form.get('username')?.touched
+       && !form.get('username')?.errors?.['required']
+       && !form.get('username')?.errors?.['minlength'])">Username</label>
+      <ng-container *ngIf="form.get('username')?.touched">
+        <p *ngIf="form.get('username')?.errors?.['required']" class="error">
+          Username is required !
+        </p>
+        <p *ngIf="form.get('username')?.errors?.['minlength']" class="error">
+          Username should be at least 3 symbols long !
+        </p>
+        <p *ngIf="registerFailureUsername" class="error">
+          {{errorMessage}}
+        </p>
+      </ng-container>
+      <input 
+      autocomplete="off"
+      [ngClass]="{'input-field-error': registerFailureUsername || (form.get('username')?.touched 
+      && (form.get('username')?.errors?.['required'] 
+      || form.get('username')?.errors?.['minlength']))}"
+      (keyup)="onKey()"
+       type="text"
+       name="username"
+       id="username"
+       formControlName="username" />
+
+      <label for="email" [hidden]="registerFailureEmail" *ngIf="(!form.get('email')?.touched) ||
+      (form.get('email')?.touched
+       && !form.get('email')?.errors?.['required']
+       && !form.get('email')?.errors?.['email'])">Email</label>
+      <ng-container *ngIf="form.get('email')?.touched">
+        <p *ngIf="form.get('email')?.errors?.['required']" class="error">
+          Email is required !
+        </p>
+        <p *ngIf="form.get('email')?.errors?.['email']" class="error">
+          Email is not valid !
+        </p>
+        <p *ngIf="registerFailureEmail" class="error">
+          {{errorMessage}}
+        </p>
+      </ng-container>
+      <input 
+      autocomplete="nope"
+      [ngClass]="{'input-field-error': registerFailureEmail || (form.get('email')?.touched 
+      && (form.get('email')?.errors?.['required'] 
+      || form.get('email')?.errors?.['email']))}"
+      (keyup)="onKey()" 
+      type="email" 
+      name="email" 
+      id="email" 
+      formControlName="email" />
+
+      <label for="phone" *ngIf="(!form.get('phone')?.touched) ||
+      (form.get('phone')?.touched
+       && !form.get('phone')?.errors?.['required']
+       && !form.get('phone')?.errors?.['phone'])">Phone</label>
+      <ng-container *ngIf="form.get('phone')?.touched">
+        <p *ngIf="form.get('phone')?.errors?.['required']" class="error">
+          Phone is required !
+        </p>
+        <p *ngIf="form.get('phone')?.errors?.['phone']" class="error">
+          Phone is not valid !
+        </p>
+      </ng-container>
+      <input
+      [ngClass]="{'input-field-error': form.get('phone')?.touched 
+      && (form.get('phone')?.errors?.['required'] 
+      || form.get('phone')?.errors?.['phone'])}"
+       type="text" 
+       name="phone" 
+       id="phone" 
+       formControlName="phone" />
+
+      <label for="address" *ngIf="(!form.get('address')?.touched) ||
+      (form.get('address')?.touched
+       && !form.get('address')?.errors?.['required']
+       && !form.get('address')?.errors?.['minlength'])">Address</label>
+      <ng-container *ngIf="form.get('address')?.touched">
+        <p *ngIf="form.get('address')?.errors?.['required']" class="error">
+          Address is required !
+        </p>
+        <p *ngIf="form.get('address')?.errors?.['minlength']" class="error">
+          Address is not valid !
+        </p>
+      </ng-container>
+      <input
+      [ngClass]="{'input-field-error': form.get('address')?.touched 
+      && (form.get('address')?.errors?.['required'] 
+      || form.get('address')?.errors?.['minlength'])}"
+       type="text"
+       name="address"
+       id="address"
+       formControlName="address" />
+
+      <label for="password" *ngIf="(!form.get('password')?.touched) ||
+      (form.get('password')?.touched
+       && !form.get('password')?.errors?.['required']
+       && !form.get('password')?.errors?.['minlength'])">Password</label>
+      <ng-container *ngIf="form.get('password')?.touched">
+        <p *ngIf="form.get('password')?.errors?.['required']" class="error">
+          Password is required!
+        </p>
+        <p *ngIf="form.get('password')?.errors?.['minlength']" class="error">
+          Password should be at least 3 symbols long !
+        </p>
+      </ng-container>
+      <input 
+      [ngClass]="{'input-field-error': form.get('password')?.touched 
+      && (form.get('password')?.errors?.['required'] 
+      || form.get('password')?.errors?.['minlength'])}"
+      type="password" 
+      name="password" 
+      id="password" 
+      formControlName="password" />
+
+      <label for="rePassword" *ngIf="(!form.get('rePassword')?.touched) ||
+      (form.get('rePassword')?.touched
+       && !form.get('rePassword')?.errors?.['required']
+       && !form.get('rePassword')?.errors?.['sameValue'])">Repeat Password</label>
+      <ng-container *ngIf="form.get('rePassword')?.touched">
+        <p *ngIf="form.get('rePassword')?.errors?.['required']" class="error">
+          Repeat Password is required!
+        </p>
+        <p *ngIf="form.get('rePassword')?.errors?.['sameValue']" class="error">
+          Repeat Password does not match password !
+        </p>
+      </ng-container>
+      <input 
+      [ngClass]="{'input-field-error': form.get('rePassword')?.touched 
+      && (form.get('rePassword')?.errors?.['required'] 
+      || form.get('rePassword')?.errors?.['sameValue'])}"
+      type="password" 
+      name="rePassword" 
+      id="rePassword" 
+      formControlName="rePassword" />
+
+      <input type="submit" class="register-form-registerbtn" value="Register" />
+    </form>
+  </article>
+  <div class="register-signin">
+    <p>Already have an account? <a class="register-signin-link" routerLink="/user/login">Sign in</a>.</p>
+  </div>
+</section>
+<ng-http-loader *ngIf="isLoading"></ng-http-loader>

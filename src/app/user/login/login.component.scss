@@ -1,0 +1,128 @@
+
+
+.login {
+  min-height: 100%;
+  background-color: rgb(50, 186, 188);
+  color: aliceblue;
+  padding-top: 70px;
+}
+
+.login-form {
+  padding: 16px;
+  text-align: center;
+  min-width: 15%;
+  max-width: 280px;
+  margin: auto;
+  margin-top: 10px;
+
+}
+
+
+.login-icon {
+  text-align: center;
+  margin-bottom: 5x;
+  padding-left: 10px;
+}
+
+.fa-user-check {
+  font-size: 50px;
+  text-align: center;
+}
+
+.login-form-title {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 50px;
+}
+
+
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+input[type="file"] {
+  padding: 11px;
+  margin: 5px 0 22px 0;
+  width: 100%;
+  border: none;
+  background-color: aliceblue;
+  box-sizing: border-box;
+  border-radius: 25px;
+
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus {
+  outline: none;
+ 
+}
+
+input.input-field-error {
+  background-color: #e0f3b2;
+}
+
+
+
+p.error {
+  text-align: center;
+  font-size: 16px;
+  color: aliceblue;
+  margin-bottom: 10px;
+}
+
+
+
+
+.login-form-loginbtn {
+  font-size: 20px;
+  color: aliceblue;
+  background-color: #CE93E3;
+  padding: 5px 30px;
+  margin: 15px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  border-radius: 25px;
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+}
+
+.login-form-loginbtn:hover {
+  opacity: 1;
+}
+
+
+.login-signup {
+  padding: 16px;
+  text-align: center;
+}
+
+
+.login-signup-link {
+  color: black;
+}
+
+@media all and(max-width: 800px) {
+  // .login {
+  //   padding-top: 40px;
+  // }
+
+  .login-form-loginbtn {
+    opacity: 1;
+  }
+
+}
+
+@media all and(max-width: 600px) {
+
+  .login-form-title {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 40px;
+  }
+
+
+}

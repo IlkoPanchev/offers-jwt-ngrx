@@ -1,0 +1,30 @@
+.error {
+  min-height: 100%;
+  background: rgb(50, 186, 188);
+  color: #333;
+}
+
+.error-content {
+  max-width: 70%;
+  min-height: 40%;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-content-title {
+  font-size: 100px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.error-content-message {
+  text-align: center;
+  font-size: 22px;
+}
+
+.error-content-message-link {
+  text-decoration: none;
+  color: white;
+}

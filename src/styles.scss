@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+ul{
+  padding-left: 0;
+}
+
+html,
+body,
+app-root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+}
+
+app-home,
+app-login,
+app-register,
+app-profile,
+app-add-offer,
+app-edit-offer,
+app-offer,
+app-offers,
+app-my-offers,
+app-search-offer,
+app-not-found,
+app-error,
+app-base-loader {
+  flex-grow: 1;
+}
+
+ul.ngx-pagination.responsive {
+  padding-left: 0px;
+}
+
+.page-pagination-paginator .ngx-pagination .current {
+  color: #ddd;
+  background: #333;
+}
+
+.page-pagination-paginator .ngx-pagination .pagination-previous,
+.page-pagination-paginator .ngx-pagination .pagination-next,
+.page-pagination-paginator .ngx-pagination .small-screen {
+  color: #333;
+}
+
+.info-snackbar {
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  background-color: rgb(51, 51, 51, 0.6);
+  color: lawngreen;
+  margin-top: 120px !important;
+  text-align: center;
+  font-size: 18px;
+  padding: 1rem;
+  word-wrap: break-word;
+}
+
+@media all and(max-width: 599px) {
+  app-home,
+  app-login,
+  app-register,
+  app-profile,
+  app-add-offer,
+  app-edit-offer,
+  app-offer,
+  app-offers,
+  app-my-offers,
+  app-search-offer,
+  app-not-found,
+  app-error,
+  app-base-loader {
+    margin-top: 110px;
+  }
+
+  app-header {
+    z-index: 1;
+  }
+}
+

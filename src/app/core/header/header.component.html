@@ -1,0 +1,196 @@
+<div class="header-wrapper">
+  <header>
+    <nav class="header-nav">
+      <div class="header-nav-menu-btn">
+        <button
+          mat-icon-button
+          (click)="closeMenu()"
+          fxShow="true"
+          fxHide.gt-xs
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div fxShow="true" class="large-menu" fxHide.lt-sm>
+        <ul class="header-nav-list-left">
+          <li
+            routerLink="/"
+            *ngIf="!isLogged"
+            class="header-nav-list-left-item active"
+          >
+            <a class="header-nav-list-left-item-link home">Home</a>
+          </li>
+          <li
+            routerLink="/offer/all-offers"
+            *ngIf="isLogged"
+            class="header-nav-list-left-item active"
+          >
+            <a class="header-nav-list-left-item-link home">Home</a>
+          </li>
+          <li routerLink="/offer/all-offers" class="header-nav-list-left-item">
+            <a class="header-nav-list-left-item-link">All Offers</a>
+          </li>
+          <li
+            routerLink="/offer/search-offer"
+            class="header-nav-list-left-item"
+          >
+            <a class="header-nav-list-left-item-link">Search</a>
+          </li>
+        </ul>
+
+        <ul class="header-nav-list-right">
+          <li
+            routerLink="/user/login"
+            *ngIf="!isLogged"
+            class="header-nav-list-right-item"
+          >
+            <a class="header-nav-list-right-item-link">Login</a>
+          </li>
+          <li
+            routerLink="/user/register"
+            *ngIf="!isLogged"
+            class="header-nav-list-right-item"
+          >
+            <a class="header-nav-list-right-item-link">Register</a>
+          </li>
+          <li *ngIf="isLogged" class="header-nav-list-right-item welcome">
+            <a class="header-nav-list-right-item-link welcome"
+              >Welcome {{ username }}</a
+            >
+          </li>
+          <li
+            *ngIf="isLogged"
+            routerLink="/user/profile"
+            class="header-nav-list-right-item"
+          >
+            <a class="header-nav-list-right-item-link">Profile</a>
+          </li>
+          <li
+            routerLink="/offer/my-offers"
+            *ngIf="isLogged"
+            class="header-nav-list-right-item"
+          >
+            <a class="header-nav-list-right-item-link">My Offers</a>
+          </li>
+          <li
+            routerLink="/offer/add"
+            *ngIf="isLogged"
+            class="header-nav-list-right-item"
+          >
+            <a class="header-nav-list-right-item-link">Add Offer</a>
+          </li>
+          <li *ngIf="isLogged" class="header-nav-list-right-item">
+            <a
+              id="logout"
+              (click)="logout()"
+              class="header-nav-list-right-item-link logout"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        [ngClass]="isHidden ? 'small-menu-hidden' : 'small-menu'"
+        fxHide.gt-xs
+      >
+        <div
+          [ngClass]="!isHidden && isLogged ? 'small-menu-logged' : ''"
+          fxHide.gt-xs
+        >
+          <ul class="header-nav-list-left">
+            <li
+              routerLink="/"
+              *ngIf="!isLogged"
+              class="header-nav-list-left-item active"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-left-item-link home">Home</a>
+            </li>
+            <li
+              routerLink="/offer/all-offers"
+              *ngIf="isLogged"
+              class="header-nav-list-left-item active"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-left-item-link home">Home</a>
+            </li>
+            <li
+              routerLink="/offer/all-offers"
+              class="header-nav-list-left-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-left-item-link">All Offers</a>
+            </li>
+            <li
+              routerLink="/offer/search-offer"
+              class="header-nav-list-left-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-left-item-link">Search</a>
+            </li>
+          </ul>
+
+          <ul class="header-nav-list-right">
+            <li
+              routerLink="/user/login"
+              *ngIf="!isLogged"
+              class="header-nav-list-right-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-right-item-link">Login</a>
+            </li>
+            <li
+              routerLink="/user/register"
+              *ngIf="!isLogged"
+              class="header-nav-list-right-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-right-item-link">Register</a>
+            </li>
+            <li *ngIf="isLogged" class="header-nav-list-right-item">
+              <a class="header-nav-list-right-item-link welcome"
+                >Welcome {{ username }}</a
+              >
+            </li>
+            <li
+              *ngIf="isLogged"
+              routerLink="/user/profile"
+              class="header-nav-list-right-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-right-item-link">Profile</a>
+            </li>
+            <li
+              routerLink="/offer/my-offers"
+              *ngIf="isLogged"
+              class="header-nav-list-right-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-right-item-link">My Offers</a>
+            </li>
+            <li
+              routerLink="/offer/add"
+              *ngIf="isLogged"
+              class="header-nav-list-right-item"
+              (click)="closeMenu()"
+            >
+              <a class="header-nav-list-right-item-link">Add Offer</a>
+            </li>
+            <li
+              *ngIf="isLogged"
+              class="header-nav-list-right-item"
+              (click)="closeMenu()"
+            >
+              <a
+                id="logout"
+                (click)="logout()"
+                class="header-nav-list-right-item-link logout"
+                >Logout</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>

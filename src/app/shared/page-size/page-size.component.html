@@ -1,0 +1,17 @@
+<div class="page-size">
+  <div class="page-size-elements">
+    <span class="page-size-elements-text"> Show on page</span>
+    <select
+      [(ngModel)]="pageSize"
+      (change)="changePageSize($event)"
+      class="page-size-elements-select"
+    >
+      <option
+        *ngFor="let selectOption of selectOptions"
+        value="{{ selectOption }}"
+      >
+        {{ selectOption }}
+      </option>
+    </select>
+  </div>
+</div>
