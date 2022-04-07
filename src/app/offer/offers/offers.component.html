@@ -1,0 +1,40 @@
+<section class="offers">
+  <h2 class="offers-title">Car Offers</h2>
+  <ng-container *ngIf="response$ | async as response">
+    <div *ngIf="response.content.length > 0" class="offers-page-size">
+      <app-page-size
+        [pageSize]="pageSize"
+        (pageSizeChanged)="changePageSize($event)"
+      ></app-page-size>
+    </div>
+    <div *ngIf="response.content.length > 0" class="page-pagination">
+      <pagination-controls
+        class="page-pagination-paginator"
+        previousLabel="Prev"
+        nextLabel="Next"
+        [responsive]="true"
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
+    </div>
+  </ng-container>
+  <article *ngIf="response$ | async as response" class="offers-content">
+    <p class="offers-content-no-offers" *ngIf="response.content.length == 0">
+      No offers available.
+    </p>
+    <app-offer-list-item
+      *ngFor="
+        let offer of response.content
+          | paginate
+            : {
+                itemsPerPage: pageSize,
+                currentPage: page,
+                totalItems: response.totalElements
+              }
+      "
+      [offer]="offer"
+    >
+    </app-offer-list-item>
+  </article>
+</section>
+<app-scroll-top></app-scroll-top>
+<ng-http-loader></ng-http-loader>

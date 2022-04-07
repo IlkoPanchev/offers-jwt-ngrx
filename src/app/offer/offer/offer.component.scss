@@ -1,0 +1,262 @@
+
+
+.offer-details {
+  min-height: 100%;
+  min-width: 100vw;
+  background: rgb(50, 186, 188);
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+.offer-details-content {
+  // padding: 10px 0px;
+  padding-bottom: 20px;
+  // background: #f1f1f1;
+  background: aliceblue;
+  color: #333;
+  min-width: 25%;
+  max-width: 350px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px 0px black;
+}
+
+.offer-details-title {
+  margin-bottom: 30px;
+  font-size: 40px;
+  text-align: center;
+  color: aliceblue;
+}
+
+
+
+  .offer-details-content-info-img{
+      width: 100%;
+      display: block;
+      height: 250px;
+      // height: 330px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+      margin-top:20px;
+      overflow: hidden;
+  }
+
+  app-image-with-loader {
+    width: 100%;
+    height: 100%;
+   
+}
+
+  .offer-details-content-info-img img{
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      object-fit: cover;
+     
+  }
+
+  .offer-details-content-description{
+      padding: 10px 25px;
+      text-align: justify;
+      margin-bottom: 5px;
+      word-wrap: break-word;
+      overflow: hidden;
+  }
+
+  .more-less-link{
+    color: #333;
+    text-decoration: none;
+  }
+
+  .offer-details-content-buttons{
+      display: flex;
+      justify-content: center;
+  }
+
+
+  .offer-details-content-btn {
+    font-size: 20px;
+    // background-color: #40B3FF;
+    // background: white;
+    background-color: #333;
+    color: white;
+    // color: black;
+    // color: rgb(50, 186, 188);
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+}
+
+.offer-details-content-btn:hover {
+    opacity: 1;
+}
+
+.edit{
+  padding: 5px 40px;
+}
+
+.delete{
+    background: #ec6279;
+    // color: #333;
+    color: white;
+    padding: 5px 28px;
+}
+
+
+.offer-details-content-info-properties-brand{
+  line-height: 30px;
+  font-size: 25px;
+  text-align: center;
+   word-wrap:break-word;
+   overflow: hidden;
+   margin: 20px 10px;
+   padding: 0px 20px;
+}
+
+
+
+
+
+.offer-details-content-info-properties-property{
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0px;
+  // justify-content: center;
+}
+
+.offer-details-content-info-properties-property-name{
+  padding-left: 25px;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.offer-details-content-info-properties-property-model{
+  padding-left: 29px;
+  word-wrap:break-word;
+  overflow: hidden;
+  font-size: 20px;
+  // font-weight: bold;
+  padding-right: 40px;
+  margin-bottom: 0px;
+}
+
+.offer-details-content-info-properties-property-year{
+  padding-left: 40px;
+  word-wrap:break-word;
+   overflow: hidden;
+  font-size: 20px;
+  // font-weight: bold;
+  padding-right: 40px;
+  margin-bottom: 0px;
+}
+
+.offer-details-content-info-properties-property-price{
+  word-wrap:break-word;
+  overflow: hidden;
+  padding-left: 36px;
+  font-size: 25px;
+  // color: rgb(50, 186, 188);
+  font-weight: bold;
+  padding-right: 40px;
+  margin-bottom: 5px;
+}
+
+// @media all and (max-width: 1200px){
+
+//   .offer-details-content-info-img{
+
+//     max-width: 300px;
+// }
+// }
+
+@media all and(max-width: 1000px){
+
+  // .offer-details-content {
+  //   min-width: 55%;
+  // }
+
+
+
+      .offer-details-content-buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media all and(max-width: 800px){
+
+  // .offer-details-content {
+  //   min-width: 70%;
+  // }
+
+  .offer-details-content-info-properties-brand{
+    font-size: 20px;
+   margin-bottom: 10px;
+  }
+  .offer-details{
+    padding-top: 30px;
+  }
+
+
+.offer-details-content-btn {
+
+  margin: 5px 0;
+}
+   
+}
+
+@media all and(max-width: 600px){
+
+//   .offer-details-content {
+//     max-width: 350px;
+//   }
+
+//   .offer-details-content-info-img{
+//     max-width: 260px;
+// }
+
+ .offer-details-content-info-properties-property-name{
+      // padding-left: 25px;
+      padding-right: 20px;
+    }
+ 
+  .offer-details-content-info-properties-property-model{
+    padding-left: 0px;
+    padding-right: 25px;
+  }
+  
+  .offer-details-content-info-properties-property-year{
+    padding-left: 11px;
+    padding-right: 25px;
+  
+  }
+  
+  .offer-details-content-info-properties-property-price{
+    padding-left: 5px;
+    padding-right: 25px;
+  }
+
+  .offer-details-content-description{
+    padding: 20px 25px;
+
+}
+
+@media all and(max-width: 400px){
+
+  .offer-details-content {
+    max-width: 300px;
+  }
+
+}
+
+}
+
+

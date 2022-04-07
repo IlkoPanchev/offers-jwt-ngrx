@@ -1,0 +1,131 @@
+<section class="add-offer">
+  <h2 class="add-offer-title">Add Offer</h2>
+    <article  class="add-offer-form">
+    <form [formGroup]="form" (ngSubmit)="addOffer()">
+
+      <label for="brand" *ngIf="(!form.get('brand')?.touched) ||
+      (form.get('brand')?.touched
+       && !form.get('brand')?.errors?.['required']
+       && !form.get('brand')?.errors?.['maxlength'])">Car Brand</label>
+      <ng-container *ngIf="form.get('brand')?.touched">
+        <p *ngIf="form.get('brand')?.errors?.['required']" class="error">
+          Brand is required !
+        </p>
+        <p *ngIf="form.get('brand')?.errors?.['maxlength']" class="error">
+          Brand should be less than 20 symbols !
+        </p>
+      </ng-container>
+      <input
+      [ngClass]="{'input-field-error': form.get('brand')?.touched 
+      && (form.get('brand')?.errors?.['required'] 
+      || form.get('brand')?.errors?.['maxlength'])}" 
+      type="text" 
+      name="brand" 
+      id="brand" 
+      formControlName="brand" />
+     
+      <label for="model" *ngIf="(!form.get('model')?.touched) ||
+      (form.get('model')?.touched
+       && !form.get('model')?.errors?.['required']
+       && !form.get('model')?.errors?.['maxlength'])">Car Model</label>
+      <ng-container *ngIf="form.get('model')?.touched">
+        <p *ngIf="form.get('model')?.errors?.['required']" class="error">
+          Model is required !
+        </p>
+        <p *ngIf="form.get('model')?.errors?.['maxlength']" class="error">
+          Model should be less than 20 symbols !
+        </p>
+      </ng-container>
+      <input 
+      [ngClass]="{'input-field-error': form.get('model')?.touched 
+      && (form.get('model')?.errors?.['required'] 
+      || form.get('model')?.errors?.['maxlength'])}" 
+      type="text" 
+      name="model" 
+      formControlName="model" 
+      id="model" />
+     
+      <label for="description" *ngIf="(!form.get('description')?.touched) ||
+      (form.get('description')?.touched
+       && !form.get('description')?.errors?.['required']
+       && !form.get('description')?.errors?.['maxlength'])">Description</label>
+      <ng-container *ngIf="form.get('description')?.touched">
+        <p *ngIf="form.get('description')?.errors?.['required']" class="error">
+          Description is required !
+        </p>
+        <p *ngIf="form.get('description')?.errors?.['maxlength']" class="error">
+          Description should be less than 250 symbols !
+        </p>
+      </ng-container>
+      <textarea 
+      autocomplete="nope"
+      [ngClass]="{'input-field-error': form.get('description')?.touched 
+      && (form.get('description')?.errors?.['required'] 
+      || form.get('description')?.errors?.['maxlength'])}" 
+      name="description" 
+      formControlName="description" 
+      id="description"> </textarea>
+     
+      <label for="year" *ngIf="(!form.get('year')?.touched) ||
+      (form.get('year')?.touched
+       && !form.get('year')?.errors?.['required']
+       && !form.get('year')?.errors?.['min'])">Car Year</label>
+      <ng-container *ngIf="form.get('year')?.touched">
+        <p *ngIf="form.get('year')?.errors?.['required']" class="error">
+          Year is required !
+        </p>
+        <p *ngIf="form.get('year')?.errors?.['min']" class="error">
+          Year must be greater than 1950 !
+        </p>
+      </ng-container>
+      <input 
+      [ngClass]="{'input-field-error': form.get('year')?.touched 
+      && (form.get('year')?.errors?.['required'] 
+      || form.get('year')?.errors?.['min'])}" 
+      type="number" 
+      name="year" 
+      formControlName="year" 
+      id="year" />
+     
+      <label for="imageUrl">Car Image</label>
+      <input
+        id="imageUrl"
+        type="file"
+        accept="image/*"
+        placeholder="Select an image"
+        name="imageUrl"
+        (change)="onFileSelect($event)"
+      />
+
+      <label for="price" *ngIf="(!form.get('price')?.touched) ||
+      (form.get('price')?.touched
+       && !form.get('price')?.errors?.['required']
+       && !form.get('price')?.errors?.['min']
+       && !form.get('price')?.errors?.['max'])">Car Price</label>
+      <ng-container *ngIf="form.get('price')?.touched">
+        <p *ngIf="form.get('price')?.errors?.['required']" class="error">
+          Price is required !
+        </p>
+        <p *ngIf="form.get('price')?.errors?.['min']" class="error">
+          Price must be greater than 0 !
+        </p>
+        <p *ngIf="form.get('price')?.errors?.['max']" class="error">
+          Price must be less than 10000000 !
+        </p>
+      </ng-container>
+      <input
+      [ngClass]="{'input-field-error': form.get('price')?.touched 
+      && (form.get('price')?.errors?.['required'] 
+         ||form.get('price')?.errors?.['min'] 
+         || form.get('price')?.errors?.['max'])}" 
+      type="number" 
+      name="price" 
+      formControlName="price" 
+      id="price" />
+
+     
+      <input [disabled]="form.invalid" type="submit" class="add-offer-form-btn" value="Add" />
+    </form>
+  </article>
+</section>
+<ng-http-loader *ngIf="isLoading"></ng-http-loader>

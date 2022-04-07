@@ -1,0 +1,17 @@
+<article class="offer-card">
+  <div class="offer-card-img">
+    <app-image-with-loader [isListItemElement]="isListItemElement" [link]="offer?.imageUrl"></app-image-with-loader>
+  </div>
+  <p class="offer-card-title-brand-model">{{ offer!.brand }} {{ offer!.model }}</p>
+  <div class="offer-card-property-year">
+    <p class="offer-card-property-year-key">Year  </p>
+    <p class="offer-card-property-year-value">{{ offer!.year }}</p>
+  </div>
+  <div class="offer-card-property-price">
+    <p class="offer-card-property-price-key">Price  </p>
+    <p class="offer-card-property-price-value">{{ offer!.price }} &euro;</p>
+  </div>
+  <div class="offer-card-buttons">
+    <button [routerLink]="['/offer', offer!.id]" class="offer-cards-buttons-button">Details</button>
+  </div>
+</article>

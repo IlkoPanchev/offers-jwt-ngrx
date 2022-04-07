@@ -1,0 +1,117 @@
+
+
+.edit-offer {
+    min-height: 100%;
+    background: rgb(50, 186, 188);
+    color: white;
+    padding-top: 30px;
+}
+
+.edit-offer-form{
+    padding: 20px 16px;
+    text-align: center;
+    min-width: 20%;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 0px;
+}
+
+.edit-offer-title {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+input[type="text"], input[type="number"], input[type="password"], input[type="email"], input[type="file"] {
+    padding: 11px;
+    margin: 5px 0 22px 0;
+    width: 100%;
+    border: none;
+    background: aliceblue;
+    box-sizing: border-box;
+    border-radius: 25px;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="file"]:focus, textarea:focus {
+    outline: none;
+}
+
+input.input-field-error,
+textarea.input-field-error {
+    background-color: #e0f3b2;
+  }
+  
+
+textarea {
+    padding: 11px;
+    margin: 5px 0 22px 0;
+    width: 100%;
+    border: none;
+    background: aliceblue;
+    box-sizing: border-box;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+p.error {
+    text-align: center;
+    font-size: 16px;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+
+.edit-offer-form-btn {
+    font-size: 20px;
+    background-color: #CE93E3;
+    color: aliceblue;
+    padding: 5px 30px;
+    margin: 15px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 25px;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+}
+
+.edit-offer-form-btn:hover {
+    opacity: 1;
+}
+
+.save {
+    margin-top: 30px;
+}
+
+.cancel{
+    background-color: #324B4B;
+  color: aliceblue;
+  padding: 6px 30px;
+}
+
+@media all and(max-width: 800px){
+    .edit-form{
+        padding: 30px 16px;
+      
+    }
+
+    .edit-form-title {
+        margin-bottom: 20px;
+
+    }
+
+    .edit, .save{
+         margin-top: 15px;
+    }
+
+   
+}
+
+
+
+
+
+
+

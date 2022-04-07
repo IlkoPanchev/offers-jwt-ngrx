@@ -1,0 +1,50 @@
+
+  
+  .my-offers {
+    min-height: 100%;
+    background: rgb(50, 186, 188);
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .my-offers-title {
+    margin-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
+  }
+  
+  .page-pagination {
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  
+  
+  .my-offers-content {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  .my-offers-content-no-offers {
+    margin: auto;
+    margin-top: 50px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  @media all and(max-width: 600px){
+    .my-offers-content {
+      justify-content: space-around;
+    }
+  }
+  
+
+

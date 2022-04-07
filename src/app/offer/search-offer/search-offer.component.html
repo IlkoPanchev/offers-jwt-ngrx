@@ -1,0 +1,35 @@
+<section class="search-offer">
+  <h2 class="search-offer-title">Filter by:</h2>
+  <div class="search-offer-bar">
+    <input class="search-offer-bar-input" [(ngModel)]="keyword" #searchInput type="text" name="search" required />
+    <button (click)="searchOffers()" class="search-offer-button">Search</button>
+  </div>
+  <ng-container *ngIf="response$ | async as response">
+    <ng-container *ngIf="response.content.length > 0">
+      <article *ngIf="response.content.length > 0" class="search-offer-page-size">
+        <app-page-size [pageSize]="pageSize" (pageSizeChanged)="changePageSize($event)"></app-page-size>
+      </article>
+      <article *ngIf="response.content.length > 0" class="page-pagination">
+        <pagination-controls class="page-pagination-paginator" previousLabel="Prev" nextLabel="Next" [responsive]="true"
+          (pageChange)="handlePageChange($event)"></pagination-controls>
+      </article>
+    </ng-container>
+  </ng-container>
+  <article *ngIf="response$ | async as response" class="search-offer-results">
+    <p *ngIf="response.content.length == 0" class="search-offer-results-no-offers">No offers available.</p>
+    <app-offer-list-item *ngFor="
+          let offer of response.content
+            | paginate
+              : {
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: response.totalElements
+                }
+        " [offer]="offer"></app-offer-list-item>
+  </article>
+  <div *ngIf="inSearchMode">
+      <ng-http-loader></ng-http-loader>
+  </div>
+  <app-scroll-top></app-scroll-top>
+</section>
+

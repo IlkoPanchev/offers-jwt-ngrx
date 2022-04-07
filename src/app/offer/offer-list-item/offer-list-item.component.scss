@@ -1,0 +1,125 @@
+
+
+.offer-card {
+    background-color: aliceblue;
+    // background-color: white;
+    color: #333;
+    text-align: left;
+    width: 250px;
+    margin: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 5px 0px black;
+   
+}
+
+.offer-card-img {
+    width: 100%;
+    height: 180px;
+    // height: 160px;
+    overflow: hidden;
+    // display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid #333;
+}
+
+// app-image-with-loader {
+//     width: 100%;
+//     height: 100%;
+// }
+
+// .offer-card-img img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: contain;
+//     border-top-left-radius: 5px;
+//     border-top-right-radius: 5px;
+
+// }
+
+.offer-card-title,
+.offer-card-property-year,
+.offer-card-property-price{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.offer-card-title-brand-model
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    word-wrap: break-word;
+    overflow: hidden;
+    margin-bottom: 5px;
+    margin-top: 12px;
+    font-size: 20px;
+}
+
+
+.offer-card-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.offer-cards-buttons-button {
+    font-size: 18px;
+    background-color: #333;
+    color: white;
+    padding: 5px 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+}
+
+.offer-cards-btn-button:hover {
+    opacity: 1;
+}
+
+.offer-card-property-year,
+.offer-card-property-price{
+    display: flex;
+   justify-content: center;
+   margin-bottom: 0;
+   margin-top: 0;
+   font-size: 14px;
+}
+
+.offer-card-property-year-key,
+.offer-card-property-year-value,
+.offer-card-property-price-key,
+.offer-card-property-price-value{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.offer-card-property-year-value{
+    margin-left: 5px;
+}
+
+.offer-card-property-year-key{
+    margin-right: 0px;
+   
+}
+
+.offer-card-property-price-key{
+    margin-left: 10px;
+}
+
+.offer-card-property-price-value{
+    margin-left: 5px;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<section class="offer-details">
+  <h2 class="offer-details-title">Details</h2>
+  <article>
+    <article *ngIf="(offer) as offer" class="offer-details-content">
+
+      <div class="offer-details-content-info">
+
+        <article class="offer-details-content-info-img">
+          <app-image-with-loader [isDetailsPage]="isDetailsPage" [link]="offer?.imageUrl"></app-image-with-loader>
+        </article>
+        <p class="offer-details-content-info-properties-brand">{{ offer!.brand }}</p>
+        <article class="offer-details-content-info-properties">
+
+          <article class="offer-details-content-info-properties-property">
+            <p class="offer-details-content-info-properties-property-name">model </p>
+            <p class="offer-details-content-info-properties-property-model"> {{offer!.model}}</p>
+          </article>
+          <article class="offer-details-content-info-properties-property">
+            <p class="offer-details-content-info-properties-property-name">year </p>
+            <p class="offer-details-content-info-properties-property-year"> {{offer!.year}}</p>
+          </article>
+          <article class="offer-details-content-info-properties-property">
+            <p class="offer-details-content-info-properties-property-name">price </p>
+            <p class="offer-details-content-info-properties-property-price"> {{offer!.price}} &euro;</p>
+          </article>
+        </article>
+      </div>
+      <p *ngIf="!readMore" class="offer-details-content-description">
+        {{offer.description.length < 150 ? offer.description : offer.description | slice : 0 : 150 }}
+        <a class="more-less-link" (click)="readMore=true" *ngIf="offer.description.length > 150" href="javascript:">[Read
+          more]</a>
+      </p>
+      <p *ngIf="readMore" class="offer-details-content-description">{{offer!.description}}
+        <a class="more-less-link" (click)="readMore=false" *ngIf="offer.description.length > 150"
+          href="javascript:">[Read less]</a>
+      </p>
+      <div *ngIf="offer.ownerId === user?.id" class="offer-details-content-buttons">
+        <a [routerLink]="['/offer/edit', offer.id]" class="offer-details-content-btn edit">Edit</a>
+        <a (click)="deleteOffer()" class="offer-details-content-btn delete">Delete</a>
+      </div>
+    </article>
+  </article>
+</section>
+

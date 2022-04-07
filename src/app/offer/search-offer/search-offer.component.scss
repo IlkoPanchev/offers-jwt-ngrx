@@ -1,0 +1,100 @@
+
+
+
+.search-offer {
+  min-height: 100%;
+  background: rgb(50, 186, 188);
+  color: aliceblue;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-offer-title {
+  margin-bottom: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+
+
+.search-offer-results {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.page-pagination {
+  display: flex;
+  justify-content: center;
+
+}
+
+.search-offer-bar {
+  min-width: 15%;
+    max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input[type="text"] {
+  padding: 11px;
+  margin-top: 5px;
+  margin-bottom: 22px;
+  width: 100%;
+  border: none;
+  background: aliceblue;
+  box-sizing: border-box;
+  border-radius: 25px;
+  color: black;
+  font-family: 'Lato', sans-serif;
+}
+
+
+
+
+input[type="text"]:focus {
+  background-color: aliceblue;
+  outline: none;
+}
+
+.search-offer-button {
+  font-size: 20px;
+  color: aliceblue;
+  background-color: #CE93E3;
+  padding: 5px 40px;
+  margin: 15px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 25px;
+  box-shadow: 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%), 0 2px 4px -1px rgb(0 0 0 / 20%);
+}
+
+.search-offer-button:hover {
+  opacity: 1;
+}
+
+.search-offer-results-no-offers {
+  margin: auto;
+  margin-top: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
+@media all and(max-width: 800px){
+  .search-offer-results {
+    justify-content: space-around;
+  }
+
+  .search-offer-button {
+    opacity: 1;
+  }
+}
