@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { DialogService } from './services/dialog.service';
+import { appErrorInterceptorProvider } from './app-error-interceptor';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, HomeComponent],
@@ -41,8 +42,11 @@ import { DialogService } from './services/dialog.service';
     OfferService,
     SnackBarService,
     DialogService,
+    appErrorInterceptorProvider,
     appInterceptorProvider,
+   
     globalErrorHandlerProvider,
+   
   ],
 })
 export class CoreModule {}
