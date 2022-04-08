@@ -28,57 +28,55 @@ import { pipe } from 'rxjs';
 
 @Injectable()
 export class UserEffects {
-  //   increment = createEffect(() => this.actions$.pipe(
-  //     ofType(setValue), //same as -> filter(action => action.type === setValue.type)
-  //     map(action => {
-  //       console.log(action);
-  //       return incrementCounter();
-  //     })
-  //   ));
-
   constructor(
     private actions$: Actions,
     private userService: UserService,
     private router: Router
-  ) { }
+  ) {}
 
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loginUser),
       switchMap((action) =>
-        this.userService.login({ username: action.username, password: action.password }).pipe(
-          takeUntil(this.actions$.pipe(ofType(loginUserCancel))),
-          map((user) => {
-            this.router.navigate(['/offer/all-offers']);
-            return loginUserSuccess({user});
-          }),
-          catchError((error) => [loginUserFailure({ error })])
-        )
+        this.userService
+          .login({ username: action.username, password: action.password })
+          .pipe(
+            takeUntil(this.actions$.pipe(ofType(loginUserCancel))),
+            map((user) => {
+              this.router.navigate(['/offer/all-offers']);
+              return loginUserSuccess({ user });
+            }),
+            catchError((error) => [loginUserFailure({ error })])
+          )
       )
     )
   );
+
+ 
 
   register$ = createEffect(() =>
     this.actions$.pipe(
       ofType(registerUser),
       switchMap((action) =>
-        this.userService.register({
-          username: action.username,
-          email: action.email,
-          phone: action.phone,
-          address: action.address,
-          password: action.password
-        }).pipe(
-          takeUntil(this.actions$.pipe(ofType(registerUserCancel))),
-          map((user) => {
-            this.router.navigate(['/offer/all-offers']);
-            return registerUserSuccess({ user })
-          }),
-          catchError((error) => [registerUserFailure({ error })])
-        )
+        this.userService
+          .register({
+            username: action.username,
+            email: action.email,
+            phone: action.phone,
+            address: action.address,
+            password: action.password,
+          })
+          .pipe(
+            takeUntil(this.actions$.pipe(ofType(registerUserCancel))),
+            map((user) => {
+              this.router.navigate(['/offer/all-offers']);
+              return registerUserSuccess({ user });
+            }),
+            catchError((error) => [registerUserFailure({ error })])
+          )
       )
     )
-  )
+  );
 
   logout$ = createEffect(() =>
     this.actions$.pipe(
@@ -101,32 +99,32 @@ export class UserEffects {
       switchMap(() =>
         this.userService.getProfileInfo().pipe(
           map((user) => {
-            return getUserProfileInfoSuccess({ user })
+            return getUserProfileInfoSuccess({ user });
           }),
           catchError((error) => [getUserProfileInfoFailure({ error })])
         )
       )
-    ));
+    )
+  );
 
   updateProfile$ = createEffect(() =>
     this.actions$.pipe(
       ofType(updateUserProfile),
       switchMap((action) =>
-        this.userService.updateProfile({
-          email: action.email,
-          phone: action.phone,
-          address: action.address,
-          password: action.password
-        }).pipe(
-          map((user) => {
-            return updateUserProfileSuccess({ user })
-          }),
-          catchError((error) => [updateUserProfileFailure({ error })])
-        )
+        this.userService
+          .updateProfile({
+            email: action.email,
+            phone: action.phone,
+            address: action.address,
+            password: action.password,
+          })
+          .pipe(
+            map((user) => {
+              return updateUserProfileSuccess({ user });
+            }),
+            catchError((error) => [updateUserProfileFailure({ error })])
+          )
       )
-    ));
-
- 
-
-
+    )
+  );
 }

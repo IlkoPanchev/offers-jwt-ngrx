@@ -35,8 +35,8 @@ export class ProfileComponent implements OnDestroy {
 
     this.store.select((state) => state.userState).pipe(
       takeUntil(this.destroySubscription$),
-      tap((userSate) => {
-        this.user = userSate.user;
+      tap((userState) => {
+        this.user = userState.user;
         this.isLoading = false}),
     ).subscribe();
 

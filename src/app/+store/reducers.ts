@@ -5,6 +5,7 @@ import { IOffer } from '../shared/interfaces/offer';
 import { IPageResponse } from '../shared/interfaces/pageResponse';
 import { getAllOffersSuccess, getAllMyOffers, searchOffersSuccess, getAllMyOffersSuccess } from './actions/offers-actions';
 import {
+  clearAppState,
   getUserProfileInfoFailure,
   getUserProfileInfoSuccess,
   loginUserSuccess,
@@ -25,7 +26,7 @@ const initialUserState: UserState = {
 export const userReducer = createReducer(
   initialUserState,
   on(loginUserSuccess, (state, { user }) => ({ ...state, user })),
-  on(logoutUserSuccess, (state) => {
+  on(logoutUserSuccess, () => {
     return { user: null };
   }),
   on(getUserProfileInfoSuccess, (state, { user }) => ({ ...state, user })),

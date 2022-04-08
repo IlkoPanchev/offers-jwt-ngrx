@@ -1,8 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { ofType } from '@ngrx/effects';
+import { ScannedActionsSubject, Store } from '@ngrx/store';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { ApplicationState } from 'src/app/+store';
-import { logoutUser } from 'src/app/+store/actions/user-actions';
+import { clearAppState, logoutUser, logoutUserSuccess } from 'src/app/+store/actions/user-actions';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnDestroy {
   isHidden: boolean = true;
   destroySubscription$: Subject<boolean> = new Subject();
 
-  constructor(private store: Store<ApplicationState>) {
+  constructor(private store: Store<ApplicationState>,
+              private $actions: ScannedActionsSubject) {
 
     this.store.select(state => state.userState)
       .pipe(
@@ -41,7 +43,18 @@ export class HeaderComponent implements OnDestroy {
 
   
   logout(): void {
-   this.store.dispatch(logoutUser())
+
+   this.store.dispatch(logoutUser());
+
+   this.$actions.pipe(
+     ofType(logoutUserSuccess),
+     takeUntil(this.destroySubscription$),
+     tap(() => {
+       setTimeout(() => {
+        this.store.dispatch(clearAppState());
+       })
+     })
+   ).subscribe()
   }
 
   closeMenu(): void {
@@ -53,3 +66,5 @@ export class HeaderComponent implements OnDestroy {
     this.destroySubscription$.complete();
   }
 }
+
+

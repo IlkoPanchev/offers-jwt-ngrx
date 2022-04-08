@@ -90,9 +90,6 @@ const namespace = '[USER]';
     props<{ error: Error }>()
   );
   
-  // export const clearGlobalState = createAction(
-  //   `${namespace} clear global state`,
-  // );
   
   export const clearAppState = createAction(
     `${namespace} clear app state`,
