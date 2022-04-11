@@ -19,6 +19,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 
 
 
+
 @NgModule({
   declarations: [
     OffersComponent,
@@ -39,6 +40,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     MatDialogModule,
     MatSnackBarModule,
     NgHttpLoaderModule.forRoot()
+   
   ],
   exports: [
     OfferComponent,

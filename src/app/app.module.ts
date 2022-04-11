@@ -26,8 +26,8 @@ import { OfferEffects } from './+store/effects/offer-effects';
 @NgModule({
   declarations: [
     AppComponent,
-  
-  
+
+
   ],
   imports: [
     BrowserModule,
@@ -36,12 +36,12 @@ import { OfferEffects } from './+store/effects/offer-effects';
     HttpClientModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({}),
-    EffectsModule.forRoot([ UserEffects, OffersEffects, OfferEffects]),
+    EffectsModule.forRoot([UserEffects, OffersEffects, OfferEffects]),
     FlexLayoutModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgHttpLoaderModule.forRoot()
-
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

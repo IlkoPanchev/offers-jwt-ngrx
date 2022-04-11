@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -22,7 +23,8 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
     FormsModule,
     ReactiveFormsModule,
     UserRoutingModule,
-    NgHttpLoaderModule.forRoot()
+    NgHttpLoaderModule.forRoot(),
+    FontAwesomeModule
   ],
   exports: [
     RegisterComponent,

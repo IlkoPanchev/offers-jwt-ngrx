@@ -7,6 +7,7 @@ import { ApplicationState } from 'src/app/+store';
 import { registerUser, registerUserFailure } from 'src/app/+store/actions/user-actions';
 import { AppConstants } from 'src/app/core/app-constants';
 import { sameValueAsFactory } from 'src/app/core/validators';
+import { faIdCard } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnDestroy {
   registerFailureEmail: boolean = false;
   errorMessage: string = '';
   isLoading: boolean = false;
+  registerIcon: any = faIdCard;
 
   constructor(
     private fb: FormBuilder,

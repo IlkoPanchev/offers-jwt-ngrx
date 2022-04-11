@@ -5,6 +5,7 @@ import { ScannedActionsSubject, Store } from '@ngrx/store';
 import { Subject, takeUntil, tap} from 'rxjs';
 import { ApplicationState } from 'src/app/+store';
 import { loginUser, loginUserFailure } from 'src/app/+store/actions/user-actions';
+import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class LoginComponent implements OnDestroy {
   form: FormGroup;
   loginFailure: boolean = false;
   isLoading: boolean = false;
+  loginIcon: any = faUserCheck;
 
   constructor(
     private fb: FormBuilder,
