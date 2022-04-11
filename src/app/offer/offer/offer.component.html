@@ -24,6 +24,7 @@
             <p class="offer-details-content-info-properties-property-price"> {{offer!.price}} &euro;</p>
           </article>
         </article>
+        <span></span>
       </div>
       <p *ngIf="!readMore" class="offer-details-content-description">
         {{offer.description.length < 150 ? offer.description : offer.description | slice : 0 : 150 }}

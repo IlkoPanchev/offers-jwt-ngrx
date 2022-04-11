@@ -5,7 +5,7 @@
   min-width: 100vw;
   background: rgb(50, 186, 188);
   color: white;
-  padding-top: 40px;
+  padding-top: 60px;
   padding-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -26,7 +26,7 @@
 }
 
 .offer-details-title {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-size: 40px;
   text-align: center;
   color: aliceblue;
@@ -71,6 +71,7 @@
   .more-less-link{
     color: #333;
     text-decoration: none;
+    font-weight: bold;
   }
 
   .offer-details-content-buttons{
@@ -203,6 +204,10 @@
   }
   .offer-details{
     padding-top: 30px;
+  }
+
+  .offer-details-title {
+    margin-bottom: 30px;
   }
 
 
