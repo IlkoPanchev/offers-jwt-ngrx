@@ -91,20 +91,7 @@ export class ProfileComponent implements OnDestroy {
       })
     ).subscribe()
     
-    // this.userService.updateProfile(this.form.value)
-    //   .pipe(takeUntil(this.destroySubscription$))
-    //   .subscribe({
-    //     next: () => {
-    //       this.inUpdateMode = false;
-    //     },
-    //     error: (err) => {
-    //       this.profileFailureEmail = true;
-    //       this.errorMessage = err.message;
-    //     },
-    //     complete: () => {
-    //       this.snackBarService.openSnackBar(AppConstants.PROFILE_UPDATED)
-    //     }
-    //   })
+
   }
 
 

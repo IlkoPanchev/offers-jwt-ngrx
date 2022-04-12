@@ -1,11 +1,8 @@
-import { stagger, state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
-import { IUser } from '../shared/interfaces';
 import { IOffer } from '../shared/interfaces/offer';
 import { IPageResponse } from '../shared/interfaces/pageResponse';
-import { getAllOffersSuccess, getAllMyOffers, searchOffersSuccess, getAllMyOffersSuccess } from './actions/offers-actions';
+import { getAllOffersSuccess, searchOffersSuccess, getAllMyOffersSuccess } from './actions/offers-actions';
 import {
-  clearAppState,
   getUserProfileInfoFailure,
   getUserProfileInfoSuccess,
   loginUserSuccess,
@@ -13,7 +10,7 @@ import {
   registerUserSuccess,
   updateUserProfileSuccess,
 } from './actions/user-actions';
-import{addOfferSuccess, deleteOfferSuccess, getOfferSuccess, editOfferSuccess} from '../+store/actions/offer-actions'
+import{deleteOfferSuccess, getOfferSuccess} from '../+store/actions/offer-actions'
 
 export interface UserState {
   readonly user: any | null;
@@ -63,8 +60,6 @@ export interface OfferState {
 export const offerReducer = createReducer(
   initialOfferState,
   on(getOfferSuccess, (state, {offer}) => ({...state, offer})),
-  // on(addOfferSuccess, (state, {offer}) => ({...state, offer})),
-  // on(editOfferSuccess, (state, {offer}) => ({...state, offer})),
   on(deleteOfferSuccess, ((state) => {
     return {offer: undefined}}))
 )

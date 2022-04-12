@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IOffer } from 'src/app/shared/interfaces/offer';
 import { IPageResponse } from 'src/app/shared/interfaces/pageResponse';
 
@@ -51,15 +51,4 @@ export class OfferService {
   }
 
 
-  // getOffersCount() {
-  //   return this.http.get<number>(`/api/offers/count`);
-  // }
-
-  // getOffersCountByKeyword(keyword: string) {
-  //   return this.http.get<number>(`/api/offers/count?keyword=${keyword}`);
-  // }
-
-  // getOffersCountByUser(userId: number) {
-  //   return this.http.get<number>(`/api/offers/count?ownerId=${userId}`);
-  // }
 }
