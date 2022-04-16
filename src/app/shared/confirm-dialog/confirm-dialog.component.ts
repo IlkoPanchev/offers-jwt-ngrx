@@ -14,8 +14,8 @@ export class ConfirmDialogComponent {
     public data: { message: string }
   ) {}
 
-  confirm(data: boolean) {
-    this.dialogRef.close(data);
+  confirm(confirmation: boolean) {
+    this.dialogRef.close(confirmation);
   }
 
   close() {

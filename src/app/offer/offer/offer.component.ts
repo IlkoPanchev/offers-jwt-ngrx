@@ -38,6 +38,7 @@ export class OfferComponent implements OnDestroy {
     private actions$: ScannedActionsSubject,
     private dialogService: DialogService
   ) {
+    
     this.id = this.activatedRoute.snapshot.params['offerId'];
 
     this.store

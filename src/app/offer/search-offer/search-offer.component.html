@@ -10,8 +10,13 @@
         <app-page-size [pageSize]="pageSize" (pageSizeChanged)="changePageSize($event)"></app-page-size>
       </article>
       <article *ngIf="response.content.length > 0" class="page-pagination">
-        <pagination-controls class="page-pagination-paginator" previousLabel="Prev" nextLabel="Next" [responsive]="true"
-          (pageChange)="handlePageChange($event)"></pagination-controls>
+        <pagination-controls
+         class="page-pagination-paginator"
+         previousLabel="Prev"
+         nextLabel="Next" 
+         [responsive]="true"
+          (pageChange)="handlePageChange($event)">
+        </pagination-controls>
       </article>
     </ng-container>
   </ng-container>
@@ -28,8 +33,7 @@
         " [offer]="offer"></app-offer-list-item>
   </article>
   <div *ngIf="inSearchMode">
-      <ng-http-loader></ng-http-loader>
+    <ng-http-loader></ng-http-loader>
   </div>
   <app-scroll-top></app-scroll-top>
 </section>
-

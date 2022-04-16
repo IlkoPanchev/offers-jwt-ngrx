@@ -5,7 +5,6 @@ import { OfferComponent } from './offer/offer.component';
 import { OfferRoutingModule } from './offer-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OfferListItemComponent } from './offer-list-item/offer-list-item.component';
-import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { AddOfferComponent } from './add-offer/add-offer.component';
 import { EditOfferComponent } from './edit-offer/edit-offer.component';

@@ -89,31 +89,6 @@
             formControlName="address"
           />
          
-
-          <!-- <p>Password</p>
-          <input type="password" class="input-error" placeholder="Enter Password" name="password" formControlName="password">
-
-          <ng-container *ngIf="form.get('password')?.touched">
-              <p *ngIf="form.get('password')?.errors?.['required']" class="error">
-                  Password is required!
-              </p>
-              <p *ngIf="form.get('password')?.errors?.['minlength']" class="error">
-                  Password should be at least 3 symbols long!
-                </p>
-            </ng-container> -->
-          <!-- 
-          <p>Repeat Password</p>
-          <input type="password" class="input-error" placeholder="Repeat Password" name="rePassword" formControlName="rePassword" >
-
-          <ng-container *ngIf="form.get('rePassword')?.touched">
-              <p *ngIf="form.get('rePassword')?.errors?.['required']" class="error">
-                Repeat Password is required!
-              </p>
-              <p *ngIf="form.get('rePassword')?.errors?.['sameValue']" class="error">
-                Repeat Password does not match password!
-              </p>
-            </ng-container> -->
-          <!-- <hr /> -->
           <input
             type="submit"
             [disabled]="!form.valid"

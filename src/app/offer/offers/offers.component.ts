@@ -1,11 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Actions, ofType } from '@ngrx/effects';
+import { Component, OnDestroy } from '@angular/core';
+import { ofType } from '@ngrx/effects';
 import { ScannedActionsSubject, Store } from '@ngrx/store';
-import { BehaviorSubject, Observable, Subject, takeUntil, tap } from 'rxjs';
+import { Observable, Subject, takeUntil, tap } from 'rxjs';
 import { ApplicationState } from 'src/app/+store';
-import { OfferService } from 'src/app/core/services/offer.service';
-import { UserService } from 'src/app/core/services/user.service';
-import { IOffer } from 'src/app/shared/interfaces/offer';
 import { IPageResponse } from 'src/app/shared/interfaces/pageResponse';
 import * as OffersActions from '../../+store/actions/offers-actions';
 import{selectOffers } from '../../+store/selectors/selectors'
@@ -18,25 +15,15 @@ import{selectOffers } from '../../+store/selectors/selectors'
 export class OffersComponent  implements OnDestroy{
   
   destroySubscription$: Subject<boolean> = new Subject();
-  // response$ = this.offerService.response$;
   response$: Observable<IPageResponse | undefined> | undefined;
-  // response: IPageResponse | undefined;
+
  
   pageSize = 3;
   page = 1;
   count = 0;
 
-  // get isLogged(): boolean {
-  //   return this.userService.isLogged;
-  // }
-
-  // ngOnInit(): void {
-
-  // }
 
   constructor(
-    private offerService: OfferService,
-    private userService: UserService,
     private store: Store<ApplicationState>,
     private actions$: ScannedActionsSubject
   ) {
@@ -50,12 +37,9 @@ export class OffersComponent  implements OnDestroy{
       })
     ).subscribe();
 
-    // this.response$ = this.store.select(selectOffers);
   
-
   }
 
- 
 
   handlePageChange(event: number): void {
     this.page = event;
@@ -66,7 +50,6 @@ export class OffersComponent  implements OnDestroy{
     this.store.dispatch(
       OffersActions.getAllOffers({ page: this.page, pageSize: this.pageSize })
     );
-    // this.offerService.loadOffersPagination(this.page, this.pageSize);
   }
 
   changePageSize(event: any): void {

@@ -1,4 +1,4 @@
-import { Component, OnDestroy} from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ofType } from '@ngrx/effects';
 import { ScannedActionsSubject, Store } from '@ngrx/store';
@@ -66,14 +66,14 @@ export class RegisterComponent implements OnDestroy {
       takeUntil(this.destroySubscription$),
       tap((error) => {
         console.log(error);
-       if (error.error.message == AppConstants.USERNAME_TAKEN) {
-            this.registerFailureUsername = true;
-          }
-          if (error.error.message == AppConstants.EMAIL_IN_USE) {
-            this.registerFailureEmail = true;
-          }
+        if (error.error.message == AppConstants.USERNAME_TAKEN) {
+          this.registerFailureUsername = true;
+        }
+        if (error.error.message == AppConstants.EMAIL_IN_USE) {
+          this.registerFailureEmail = true;
+        }
 
-          this.errorMessage = error.error.message;
+        this.errorMessage = error.error.message;
       })
     ).subscribe();
   }
