@@ -23,8 +23,7 @@ import {
 import { catchError, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { UserService } from 'src/app/core/services/user.service';
 import { Router } from '@angular/router';
-import { ICredentials } from 'src/app/shared/interfaces/credentials';
-import { pipe } from 'rxjs';
+
 
 @Injectable()
 export class UserEffects {

@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { IUser } from 'src/app/shared/interfaces';
-import { ICredentials } from 'src/app/shared/interfaces/credentials';
+
 
 
 const namespace = '[USER]';

@@ -10,7 +10,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { InfoBarComponent } from './info-bar/info-bar.component';
 import { ImageWithLoaderComponent } from './image-with-loader/image-with-loader.component';
-import { ScrollTopComponent } from './scroll-top/scroll-top.component'
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -23,9 +24,13 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component'
     InfoBarComponent,
     ImageWithLoaderComponent,
     ScrollTopComponent
-  
+
   ],
-  imports: [CommonModule, RouterModule, FormsModule, MatDialogModule],
+  imports: [CommonModule,
+    RouterModule,
+    FormsModule,
+    MatDialogModule,
+    FontAwesomeModule],
   exports: [
     ErrorComponent,
     NotFoundComponent,
@@ -35,4 +40,4 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component'
     ScrollTopComponent
   ],
 })
-export class SharedModule {}
+export class SharedModule { }

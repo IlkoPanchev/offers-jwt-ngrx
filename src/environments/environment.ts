@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  // apiURL: 'http://offers-rest-jwt-cookies.herokuapp.com/api/'
   apiURL: 'https://offers-rest-jwt-cookies.herokuapp.com/api/'
   // apiURL: 'http://localhost:8080/api/'
 };

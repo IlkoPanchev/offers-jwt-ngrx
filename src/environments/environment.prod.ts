@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  // apiURL: 'www.mysupercoolwebapp.com/api'
+  apiURL: 'https://offers-rest-jwt-cookies.herokuapp.com/api/'
 };

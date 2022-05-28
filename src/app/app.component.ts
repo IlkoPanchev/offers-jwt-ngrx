@@ -14,10 +14,6 @@ import { UserService } from './core/services/user.service';
 })
 export class AppComponent {
 
-  // get isAuthenticating(): boolean{
-  //   return this.userService.user === undefined;
-  // }
-
   isAuthenticating: boolean = true;
 
 
@@ -27,13 +23,7 @@ export class AppComponent {
     private store: Store<ApplicationState>,
     private actions$: ScannedActionsSubject) {
 
-    // this.userService.getProfileInfo().subscribe({
-    //   error: (error) => {
-    //     console.log(error)
-    //     this.userService.user = null;
-    //     this.router.navigate(['/home']);
-    //   }
-    // });
+
 
     this.store.dispatch(getUserProfileInfo());
 
